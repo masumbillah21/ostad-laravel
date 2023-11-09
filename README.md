@@ -12,7 +12,7 @@ In this assignment, you will create a basic Laravel application and use artisan 
 
 Composer command: ```composer create-project laravel/laravel ostad-laravel```
 
-Laravel Installer: ``` laravel new ostad-laravl```
+Laravel Installer: ``` laravel new ostad-laravel```
 
 NOTE: here "ostad-laravel" will be the project name.
 
