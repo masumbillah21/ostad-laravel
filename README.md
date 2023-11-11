@@ -7,7 +7,7 @@ Write a Laravel route to handle a GET request for '/about' URL. The route should
 Route: 
 ```php
     Route::get("/about", [AboutController::class,"index"]);
-    ```
+```
 
 Url: http://127.0.0.1:8000/about
 
@@ -19,7 +19,7 @@ Create a function called 'login' inside the 'UserController' class that takes tw
 Route: 
 ```php
     Route::get("/login/{email}/{password}", [UserController::class,"login"]);
-    ```
+```
 
 Login Method: 
 ```php
@@ -30,7 +30,7 @@ Login Method:
             return 'Invalid credentials';
         }
     }
-    ```
+```
 
 Login Info:
 Email: masum@billah.com
