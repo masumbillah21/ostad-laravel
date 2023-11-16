@@ -1,43 +1,14 @@
-# Live Test 7
+# Assignment 08
 
-## Task 1: 
+## Task:
 
-Write a Laravel route to handle a GET request for '/about' URL. The route should call the 'AboutController' and the 'index' method.
+Create a `get` route called `/profile` with a required parameter `id`, which will connect to a controller named `ProfileController`. This ProfileController should have only one public method called `index`.
 
-Route: 
-```php
-    Route::get("/about", [AboutController::class,"index"]);
-```
+The `index` method will receive the `$id` as a route parameter.  Inside the `index` method declare two variables called `$name` and set the value “Donal Trump” and the `$age` value will be “75”. The values of both variables must be in double quotation.
 
-Url: http://127.0.0.1:8000/about
+Then make a `$data` variable to store the `$id` as well as the declared variables $name and $age as an associative array. The name of the keys will be the same.
 
-## Task 2: .
+Also make a cookie; name as `access_token` , value  as `123-XYZ` , minutes as 1, path as ‘/’, domain as $_SERVER[‘SERVER_NAME’], secure as ‘false’ and httpOnly as true.
 
-Create a function called 'login' inside the 'UserController' class that takes two parameters: 'email' and 'password'. This function should return a message saying 'Login successful' if the email and password match, and 'Invalid credentials' if they didn't match.
+Return this data as response with status-code `200` and cookie.
 
-
-Route: 
-```php
-    Route::get("/login/{email}/{password}", [UserController::class,"login"]);
-```
-
-Login Method: 
-```php
-    public function login($email, $password): string{
-        if ($email === 'masum@billah.com' && $password === '12345678') {
-            return 'Login successful';
-        }else{
-            return 'Invalid credentials';
-        }
-    }
-```
-
-Login Info:
-Email: masum@billah.com
-Password: 12345678
-
-URL To Browse: 
-http://127.0.0.1:8000/login/{email}/{password}
-
-Replace {email} with email
-Replace {password} with password
