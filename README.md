@@ -1,14 +1,13 @@
-# Assignment 08
+# Live Test 08
 
-## Task:
+## Task 1:
 
-Create a `get` route called `/profile` with a required parameter `id`, which will connect to a controller named `ProfileController`. This ProfileController should have only one public method called `index`.
+Suppose you are sending a Form request in Laravel.
 
-The `index` method will receive the `$id` as a route parameter.  Inside the `index` method declare two variables called `$name` and set the value “Donal Trump” and the `$age` value will be “75”. The values of both variables must be in double quotation.
+Now, create a route in Laravel that handles a POST request to the '/form-submit' URL with the following data: ‘email’ = ‘john@test.com’. Inside the route closure, retrieve the 'email' input parameter from the request and store it in a variable called $email. 
 
-Then make a `$data` variable to store the `$id` as well as the declared variables $name and $age as an associative array. The name of the keys will be the same.
+ ## Task 2:
 
-Also make a cookie; name as `access_token` , value  as `123-XYZ` , minutes as 1, path as ‘/’, domain as $_SERVER[‘SERVER_NAME’], secure as ‘false’ and httpOnly as true.
+In your Laravel application, you want to retrieve the value of the 'User-Agent' header from a GET request to ‘/user-agent’ URL. 
 
-Return this data as response with status-code `200` and cookie.
-
+Write the code to accomplish this and store the value in a variable called $userAgent. Return the $userAgent as a response.
