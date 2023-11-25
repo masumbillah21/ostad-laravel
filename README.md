@@ -1,13 +1,36 @@
-# Live Test 08
+# Live Test 09
 
 ## Task 1:
+Write a single action controller in PHP that prints 'Hello, World!' when accessed.
 
-Suppose you are sending a Form request in Laravel.
+Route to access:
+``` php
+class SingleActionController extends Controller
+{
+    public function __invoke(Request $request)
+    {
+        return 'Hello, World!';
+    }
+}
+```
 
-Now, create a route in Laravel that handles a POST request to the '/form-submit' URL with the following data: ‘email’ = ‘john@test.com’. Inside the route closure, retrieve the 'email' input parameter from the request and store it in a variable called $email. 
+## Task-2:
 
- ## Task 2:
+Create a route group  and apply a middleware function 'isAdmin' to all routes within that group.
+Create a route group  and apply a middleware function isUser to all routes within that group.
 
-In your Laravel application, you want to retrieve the value of the 'User-Agent' header from a GET request to ‘/user-agent’ URL. 
+```php
+Route::middleware(['isAdmin'])->group(function () {
+    Route::get('/admin/dashboard', [AdminController::class, 'dashboard']);
+    Route::get('/admin/user-list', [AdminController::class, 'userList']);
+    Route::get('/admin/user-role', [AdminController::class, 'userRole']);
+    Route::get('/admin/profile', [AdminController::class, 'profile']);
+});
 
-Write the code to accomplish this and store the value in a variable called $userAgent. Return the $userAgent as a response.
+Route::middleware(['isUser'])->group(function () {
+    Route::get('/user/dashboard', [UserController::class, 'dashboard']);
+    Route::get('/user/tasks', [UserController::class, 'tasks']);
+    Route::get('/user/profile', [UserController::class, 'profile']);
+});
+
+```

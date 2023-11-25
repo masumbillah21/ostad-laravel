@@ -1,37 +1,22 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\SingleActionController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
-Route::post('/form-submit', function (Request $request) {
-    
-    $email = $request->input('email');
-    
-    if(!empty($email)) {
-    
-         $data = [
-            "status" => "success",
-            "message" => "Form submitted successfully.",
-            "email" =>  $email,
-         ];
-    
-         return response($data);
-    
-    }else{
-    
-        $data = [
-            "status" => "failed",
-            "message" => "Form submission failed.",
-         ];
-    
-         return response($data);
-    
-    }
-    
+Route::get("/single", SingleActionController::class);
+
+Route::middleware(['isAdmin'])->group(function () {
+    Route::get('/admin/dashboard', [AdminController::class, 'dashboard']);
+    Route::get('/admin/user-list', [AdminController::class, 'userList']);
+    Route::get('/admin/user-role', [AdminController::class, 'userRole']);
+    Route::get('/admin/profile', [AdminController::class, 'profile']);
 });
 
-Route::get("/user-agent", function (Request $request) {
-    $userAgent = $request->header('User-Agent');
-
-    return response($userAgent);
+Route::middleware(['isUser'])->group(function () {
+    Route::get('/user/dashboard', [UserController::class, 'dashboard']);
+    Route::get('/user/tasks', [UserController::class, 'tasks']);
+    Route::get('/user/profile', [UserController::class, 'profile']);
 });
